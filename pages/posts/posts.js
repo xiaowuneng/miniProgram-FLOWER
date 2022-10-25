@@ -1,4 +1,4 @@
-// pages/welcome/welcome.js
+// pages/posts/posts.js
 Page({
 
   /**
@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // console.log(userAvatarUrl)
+
   },
 
   /**
