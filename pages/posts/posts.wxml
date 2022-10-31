@@ -11,19 +11,22 @@
       <image src="/images/lpl.png"></image>
     </swiper-item>
   </swiper>
-  <view class="posts">
-    <view class="author-date">
-      <image class="author" src="/images/avatar/5.png"></image>
-      <text class="date">Nov 20 2020</text>
+  <!-- wx:for-item="item" wx:for-index="index" -->
+  <block wx:for="{{postList}}" wx:key="index">
+    <view class="posts">
+      <view class="author-date">
+        <image class="author" src="{{item.avatar}}"></image>
+        <text class="date">{{item.date}}</text>
+      </view>
+      <text class="title">{{item.title}}</text>
+      <image class="img" src="{{item.imgSrc}}"></image>
+      <text class="content">{{item.content}}</text>
+      <view class="link">
+        <mp-icon extClass="like" icon="like" color="#666" size="{{20}}"></mp-icon>
+        <text>{{item.collection}}</text>
+        <mp-icon extClass="read" icon="eyes-on" color="#666" size="{{20}}"></mp-icon>
+        <text>{{item.reading}}</text>
+      </view>
     </view>
-    <text class="title">2020LPL夏季赛季后赛观赛指南</text>
-    <image class="img" src="/images/lpl.png"></image>
-    <text class="content">8月9号，LPL常规赛收官之战结束，在事关季后赛轮次的比赛中关键对局中，SN战胜了FPX，为本赛季常规赛画上句号。进入季后赛的战队依次为，TES、JDG、IG、SN、V5、LGD、WE、FPX。既有传统四强，又有新崛起的黑马。本文主要是从上路的大改动展开，引发对所有其他的影响。牵一发而动全身，上路一旦回归carry上单版本，对野区和中路的影响是显而易见的。而下路在艾希大砍一刀之后，女警的过于强势，使她只能出现在BAN位上，因此主流下路还是会回归功能性下路英雄。由此，可以对应各位选手的英雄池，对应各支战队的战术储备，漫长的季后赛，考验的就是各队适应版本的能力。</text>
-    <view class="link">
-      <image src="/images/icon/chat.png"></image>
-      <text>92</text>
-      <image class="read" src="/images/icon/view.png"></image>
-      <text>102</text>
-    </view>
-  </view>
+  </block>
 </view>

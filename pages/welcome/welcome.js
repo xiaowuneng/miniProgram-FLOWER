@@ -7,7 +7,12 @@ Page({
   data: {
 
   },
-
+  go() {
+    // wx.navigateTo({ //最多10层
+    wx.redirectTo({
+      url: '../posts/posts',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

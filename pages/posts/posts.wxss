@@ -12,10 +12,10 @@
 .posts {
   display: flex;
   flex-direction: column;
-  margin: 20rpx 0 30rpx;
+  margin-top: 20rpx;
   padding: 20rpx 0 0;
   border-top: 1px solid #ededed;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ededed;
 }
 
 .posts .author-date {
@@ -66,11 +66,16 @@
   padding: 20rpx;
   font-size: 24rpx;
 }
-.posts .link image {
+/* .posts .link image {
   width: 32rpx;
   height: 32rpx;
   padding-right: 10rpx;
-}
+} */
 .posts .link .read {
-  padding-left: 40rpx;
+  margin-left: 40rpx;
+}
+
+.posts .link text {
+  margin-left: 10rpx;
+  margin-top: 2rpx;
 }

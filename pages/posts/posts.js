@@ -1,18 +1,19 @@
 // pages/posts/posts.js
+import {postList} from '../../data/data.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    postList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({postList})
   },
 
   /**

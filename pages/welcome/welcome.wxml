@@ -4,9 +4,7 @@
     <image src="/images/avatar/3.png" class="avatar"></image>
     <!-- <text class="user-name">userName</text> -->
   </view>
-  <text class="motto">Hello,十月</text>
-  <text class="go">开启小程序之旅</text>
-  <text>
-
-  </text>
+  <text class="motto">Hello, 十月</text>
+  <!-- catch:tap 阻止事件冒泡 -->
+  <text class="go" bind:tap="go">开启小程序之旅</text>
 </view>
