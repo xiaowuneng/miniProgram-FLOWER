@@ -8,7 +8,26 @@ Page({
   data: {
     postList: []
   },
-
+  onFullAvatar(event) {
+    // let currentUrl = event.currentTarget.dataset.src
+    // 点击头像放大
+    wx.previewImage({
+      current: 'https://cdn2.thecatapi.com/images/4id.gif', 
+      urls: [
+        'https://cdn2.thecatapi.com/images/4id.gif',
+        'https://cdn2.thecatapi.com/images/99c.jpg',
+        'https://cdn2.thecatapi.com/images/c5s.jpg',
+        'https://cdn2.thecatapi.com/images/cmf.jpg',
+        'https://cdn2.thecatapi.com/images/dda.jpg',
+        'https://cdn2.thecatapi.com/images/AOSg9PWds.jpg'
+      ]
+    })
+  },
+  onGoToDetail() {
+    wx.navigateTo({
+      url: '../posts-detail/posts-detail',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -15,17 +15,19 @@
   <block wx:for="{{postList}}" wx:key="index">
     <view class="posts">
       <view class="author-date">
-        <image class="author" src="{{item.avatar}}"></image>
+        <image bind:tap="onFullAvatar" class="author" src="{{item.avatar}}"></image>
         <text class="date">{{item.date}}</text>
       </view>
-      <text class="title">{{item.title}}</text>
-      <image class="img" src="{{item.imgSrc}}"></image>
-      <text class="content">{{item.content}}</text>
-      <view class="link">
-        <mp-icon extClass="like" icon="like" color="#666" size="{{20}}"></mp-icon>
-        <text>{{item.collection}}</text>
-        <mp-icon extClass="read" icon="eyes-on" color="#666" size="{{20}}"></mp-icon>
-        <text>{{item.reading}}</text>
+      <view bind:tap="onGoToDetail">
+        <text class="title">{{item.title}}</text>
+        <image class="img" src="{{item.imgSrc}}"></image>
+        <text class="content">{{item.content}}</text>
+        <view class="link">
+          <mp-icon extClass="like" icon="like" color="#666" size="{{20}}"></mp-icon>
+          <text>{{item.collection}}</text>
+          <mp-icon extClass="read" icon="eyes-on" color="#666" size="{{20}}"></mp-icon>
+          <text>{{item.reading}}</text>
+        </view>
       </view>
     </view>
   </block>
