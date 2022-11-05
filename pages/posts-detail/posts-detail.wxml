@@ -1,6 +1,7 @@
 <!--pages/posts-detail/posts-detail.wxml-->
 <view class="container">
   <image src="{{detailData.imgSrc}}" class="banner"></image>
+  <image bind:tap="onAudio" src="{{!isPlayAudio?'/images/music/music-start.png':'/images/music/music-stop.png'}}" class="audio"></image>
   <view class="content">
     <view class="auth-info">
       <image src="{{detailData.avatar}}" class="avatar"></image>

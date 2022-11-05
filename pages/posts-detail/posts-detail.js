@@ -2,6 +2,8 @@
 import {postList} from '../../data/data.js'
 let pId = null
 let posts_collection = {}
+let _audio = null
+let app = getApp()
 Page({
 
   /**
@@ -9,9 +11,21 @@ Page({
    */
   data: {
     detailData: {},
-    isCollection: false
+    isCollection: false,
+    isPlayAudio: false
   },
-  onCollect(event) {
+  onAudio(){
+    this.setData({
+      isPlayAudio: !this.data.isPlayAudio
+    })
+    app.gIsPlayBgMusic = this.data.isPlayAudio
+    if(this.data.isPlayAudio) {
+      _audio.play()
+    } else {
+      _audio.pause()
+    }
+  },
+  onCollect() {
     this.setData({
       isCollection: !this.data.isCollection
     })
@@ -30,6 +44,25 @@ Page({
     })
     console.log(res.tapIndex)
   },
+  setAudio() {
+    _audio = wx.getBackgroundAudioManager()
+    _audio.src = this.data.detailData.music.url //音乐不播放，有可能是歌曲链接失效
+    _audio.title = this.data.detailData.music.title
+    _audio.coverImgUrl = this.data.detailData.music.coverImg
+    _audio.pause() // 暂停退出后，再进入时 生效
+    _audio.onCanplay(()=>{
+      // 默认不播放
+      _audio.pause()
+    })
+    _audio.onPlay(() => {
+      this.setData({isPlayAudio: true})
+      app.gIsPlayBgMusic = true
+    }) 
+    _audio.onPause(() => {
+      this.setData({isPlayAudio: false})
+      app.gIsPlayBgMusic = false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -40,8 +73,10 @@ Page({
       const detailData = postList.find(item => item.postId === pId)
       this.setData({
         detailData,
-        isCollection: posts_collection[pId]
+        isCollection: posts_collection[pId],
+        isPlayAudio: app.gIsPlayBgMusic
       })
+      this.setAudio()
     }
   },
 

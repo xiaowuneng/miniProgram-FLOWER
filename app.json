@@ -10,5 +10,6 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "mp-icon": "weui-miniprogram/icon/icon"
-  }
+  },
+  "requiredBackgroundModes": ["audio", "location"]
 }
