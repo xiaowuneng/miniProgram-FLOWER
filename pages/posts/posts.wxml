@@ -12,13 +12,13 @@
     </swiper-item>
   </swiper>
   <!-- wx:for-item="item" wx:for-index="index" -->
-  <block wx:for="{{postList}}" wx:key="index">
+  <block wx:for="{{postList}}" wx:key="postId">
     <view class="posts">
       <view class="author-date">
-        <image bind:tap="onFullAvatar" class="author" src="{{item.avatar}}"></image>
+        <image bind:tap="onFullAvatar" class="author" src="{{item.avatar}}" data-index="{{index}}"></image>
         <text class="date">{{item.date}}</text>
       </view>
-      <view bind:tap="onGoToDetail">
+      <view bind:tap="onGoToDetail" data-post-id="{{item.postId}}">
         <text class="title">{{item.title}}</text>
         <image class="img" src="{{item.imgSrc}}"></image>
         <text class="content">{{item.content}}</text>

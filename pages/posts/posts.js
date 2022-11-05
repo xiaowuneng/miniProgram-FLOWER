@@ -1,7 +1,14 @@
 // pages/posts/posts.js
 import {postList} from '../../data/data.js'
+const catImgs = [
+  'https://cdn2.thecatapi.com/images/4id.gif',
+  'https://cdn2.thecatapi.com/images/99c.jpg',
+  'https://cdn2.thecatapi.com/images/c5s.jpg',
+  'https://cdn2.thecatapi.com/images/cmf.jpg',
+  'https://cdn2.thecatapi.com/images/dda.jpg',
+  'https://cdn2.thecatapi.com/images/AOSg9PWds.jpg'
+]
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -9,23 +16,17 @@ Page({
     postList: []
   },
   onFullAvatar(event) {
-    // let currentUrl = event.currentTarget.dataset.src
+    const index = event.currentTarget.dataset.index
     // 点击头像放大
     wx.previewImage({
-      current: 'https://cdn2.thecatapi.com/images/4id.gif', 
-      urls: [
-        'https://cdn2.thecatapi.com/images/4id.gif',
-        'https://cdn2.thecatapi.com/images/99c.jpg',
-        'https://cdn2.thecatapi.com/images/c5s.jpg',
-        'https://cdn2.thecatapi.com/images/cmf.jpg',
-        'https://cdn2.thecatapi.com/images/dda.jpg',
-        'https://cdn2.thecatapi.com/images/AOSg9PWds.jpg'
-      ]
+      current: catImgs[index], 
+      urls: catImgs
     })
   },
-  onGoToDetail() {
+  onGoToDetail(event) {
+    const pId = event.currentTarget.dataset.postId;
     wx.navigateTo({
-      url: '../posts-detail/posts-detail',
+      url: `../posts-detail/posts-detail?pId=${pId}`,
     })
   },
   /**

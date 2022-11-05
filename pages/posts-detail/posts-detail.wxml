@@ -1,2 +1,20 @@
 <!--pages/posts-detail/posts-detail.wxml-->
-<text>pages/posts-detail/posts-detail.wxml</text>
+<view class="container">
+  <image src="{{detailData.imgSrc}}" class="banner"></image>
+  <view class="content">
+    <view class="auth-info">
+      <image src="{{detailData.avatar}}" class="avatar"></image>
+      <text class="name">{{detailData.author}}</text>
+      <text class="const">发表于</text>
+      <text class="date">{{detailData.dateTime}}</text>
+    </view>
+    <text class="title">{{detailData.title}}</text>
+    <view class="btns">
+      <text class="line"></text>
+      <image wx:if="{{isCollection}}" bind:tap="onCollect" src="../../images/icon/collection.png"></image>
+      <image wx:else bind:tap="onCollect" src="../../images/icon/collection-anti.png"></image>
+      <image bind:tap="onShare" src="../../images/icon/share.png" class="share"></image>
+    </view>
+    <text class="detail-text">{{detailData.detail}}</text>
+  </view>
+</view>

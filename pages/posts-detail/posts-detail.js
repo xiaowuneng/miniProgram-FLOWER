@@ -1,18 +1,48 @@
 // pages/posts-detail/posts-detail.js
+import {postList} from '../../data/data.js'
+let pId = null
+let posts_collection = {}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    detailData: {},
+    isCollection: false
   },
-
+  onCollect(event) {
+    this.setData({
+      isCollection: !this.data.isCollection
+    })
+    posts_collection[pId] = this.data.isCollection
+    wx.setStorageSync('posts_collection', posts_collection)
+    wx.showToast({
+      title: this.data.isCollection ? '收藏成功' : '已取消收藏'
+    })
+    // wx.showModal({
+    //   cancelColor: 'cancelColor',
+    // })
+  },
+  async onShare() {
+    const res = await wx.showActionSheet({
+      itemList: ['分享到微信', '分享到朋友圈'],
+    })
+    console.log(res.tapIndex)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    if(options.pId){
+      pId = Number(options.pId)
+      posts_collection = wx.getStorageSync('posts_collection') || {}
+      const detailData = postList.find(item => item.postId === pId)
+      this.setData({
+        detailData,
+        isCollection: posts_collection[pId]
+      })
+    }
   },
 
   /**
