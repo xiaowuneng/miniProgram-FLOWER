@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/xiaowuneng/miniProgram-FLOWER#readme",
   "dependencies": {
-    "weui-miniprogram": "^1.2.4"
+    "@vant/weapp": "^1.10.6"
   }
 }

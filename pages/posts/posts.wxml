@@ -1,14 +1,8 @@
 <!--pages/posts/posts.wxml-->
 <view>
   <swiper class="swiper-wrapper" indicator-dots autoplay circular>
-    <swiper-item>
-      <image src="/images/bestplayers.png"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/images/jumpfly.png"></image>
-    </swiper-item>
-    <swiper-item>
-      <image src="/images/lpl.png"></image>
+    <swiper-item wx:for="{{swiperImg}}" wx:key="id">
+      <image bind:tap="onGoToDetail" data-post-id="{{item.id}}" src="{{item.imgSrc}}"></image>
     </swiper-item>
   </swiper>
   <!-- wx:for-item="item" wx:for-index="index" -->
@@ -23,9 +17,9 @@
         <image class="img" src="{{item.imgSrc}}"></image>
         <text class="content">{{item.content}}</text>
         <view class="link">
-          <mp-icon extClass="like" icon="like" color="#666" size="{{20}}"></mp-icon>
+          <van-icon name="star-o" custom-class="like" color="#666" size="{{14}}" />
           <text>{{item.collection}}</text>
-          <mp-icon extClass="read" icon="eyes-on" color="#666" size="{{20}}"></mp-icon>
+          <van-icon name="eye-o" custom-class="read" color="#666" size="{{16}}" />
           <text>{{item.reading}}</text>
         </view>
       </view>

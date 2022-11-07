@@ -1,0 +1,10 @@
+.container {
+  background-color: #f7f8fa;
+}
+.container .van-search {
+  padding: 0;
+}
+.container .title-wrapper {
+  display: flex;
+  justify-content: space-around;
+}

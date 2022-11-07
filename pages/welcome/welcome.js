@@ -9,7 +9,8 @@ Page({
   },
   go() {
     // wx.navigateTo({ //最多10层
-    wx.redirectTo({
+    // wx.redirectTo({
+    wx.switchTab({ // 跳转至带有tabBar的页面
       url: '../posts/posts',
     })
   },

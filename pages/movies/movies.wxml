@@ -1,0 +1,6 @@
+<!--pages/movies/movies.wxml-->
+<view class="container">
+  <van-search value="{{ value }}" placeholder="复仇者联盟" />
+  <movie-list wx:for="{{movieData}}" wx:key="index" movies="{{item.data}}" title="{{item.title}}" />
+
+</view>

@@ -2,14 +2,38 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/posts/posts",
-    "pages/posts-detail/posts-detail"
+    "pages/posts-detail/posts-detail",
+    "pages/movies/movies"
   ],
   "window": {
     "navigationBarBackgroundColor": "#c22a1e"
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "mp-icon": "weui-miniprogram/icon/icon"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-rate": "@vant/weapp/rate/index"
   },
-  "requiredBackgroundModes": ["audio", "location"]
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#333",
+    "list": [
+      {
+        "text": "阅读",
+        "pagePath": "pages/posts/posts",
+        "iconPath": "/images/tab/posts.png",
+        "selectedIconPath": "/images/tab/posts@highlight.png"
+      },
+      {
+        "text": "电影",
+        "pagePath": "pages/movies/movies",
+        "iconPath": "/images/tab/movies.png",
+        "selectedIconPath": "/images/tab/movies@highlight.png"
+      }
+    ]
+  }
 }

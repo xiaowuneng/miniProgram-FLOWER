@@ -1,0 +1,17 @@
+.container {
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+.container .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+}
+.container .title-wrapper .more {
+  color: #1f4ba5;
+}
+.container .movie-list {
+  display: flex;
+  justify-content: space-between;
+}

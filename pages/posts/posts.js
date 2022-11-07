@@ -8,12 +8,18 @@ const catImgs = [
   'https://cdn2.thecatapi.com/images/dda.jpg',
   'https://cdn2.thecatapi.com/images/AOSg9PWds.jpg'
 ]
+const swiperImg = [
+  {id: 0, imgSrc: '/images/lpl.png'},
+  {id: 3, imgSrc: '/images/bestplayers.png'},
+  {id: 4, imgSrc: '/images/jumpfly.png'}
+]
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    postList: []
+    postList: [],
+    swiperImg
   },
   onFullAvatar(event) {
     const index = event.currentTarget.dataset.index

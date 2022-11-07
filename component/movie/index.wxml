@@ -1,0 +1,19 @@
+<!--component/movie/index.wxml-->
+<view class="container">
+  <image class="cover-img" src="{{movie.images.large}}" alt=""/>
+  <text class="movie-title">{{movie.original_title}}</text>
+  <view class="rate">
+    <van-rate
+      value="{{ movie.rating.stars / 10 || 0}}"
+      size="{{ 10 }}"
+      allow-half
+      readonly
+      color="#ffd21e"
+      void-icon="star"
+      void-color="#eee"
+      gutter="0"
+    />
+    <text class="rate-value">{{movie.rating.average}}</text>
+  </view>
+
+</view>

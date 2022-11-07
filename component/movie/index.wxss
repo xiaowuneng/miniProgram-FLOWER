@@ -1,0 +1,22 @@
+:host {
+  display: contents;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 210rpx;
+}
+.container .cover-img {
+  width: 100%;
+  height: 320rpx;
+}
+.container .movie-title {
+  padding-top: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container .rate .rate-value {
+  font-size: 20rpx;
+  padding-left: 20rpx;
+}
