@@ -2,7 +2,7 @@
 <view class="container">
   <view class="title-wrapper">
     <text class="title">{{title}}</text>
-    <text class="more">更多 > </text>
+    <text class="more" bind:tap="onMoreMovie" data-category="{{category}}">更多 > </text>
   </view>
   <view class="movie-list">
     <movie wx:for="{{movies}}" wx:key="id" movie="{{item}}" />

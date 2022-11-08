@@ -8,15 +8,15 @@ Page({
     value: '',
     movieData: {
       hitMovies: {
-        title: '正在热映',
+        category: 'hit',
         data: []
       },
       comingSoonMovies: {
-        title: '即将上映',
+        category: 'comingSoon',
         data: []
       },
       top250Movies: {
-        title: '豆瓣Top250',
+        category: 'top250',
         data: []
       }
     },
