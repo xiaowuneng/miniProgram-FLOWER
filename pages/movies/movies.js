@@ -20,6 +20,23 @@ Page({
         data: []
       }
     },
+    isSearching: false,
+    searchRes: []
+  },
+  onSearch(event) {
+    this.setData({isSearching: true})
+    wx.request({
+      url: app.gBaseUrl + 'search',
+      data:{ q: event.detail},
+      success:(res)=>{
+        this.setData({
+          searchRes: res.data.subjects
+        })
+      }
+    })
+  },
+  onCancel() {
+    this.setData({isSearching: false})
   },
   getHitMovies() {
     wx.request({

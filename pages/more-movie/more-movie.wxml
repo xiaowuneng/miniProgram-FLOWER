@@ -1,4 +1,6 @@
 <!--pages/more-movie/more-movie.wxml-->
 <view class="container">
   <movie wx:for="{{movieList}}" wx:key="id" movie="{{item}}" class="movie" />
+  <van-loading wx:if="{{isLoading}}" color="#1989fa" size="20" class="loading" />
+  <view wx:if="{{!isLoading && noMoreData}}" class="tip">—————— 已经到底线了～ ——————</view>
 </view>

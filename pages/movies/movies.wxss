@@ -2,11 +2,29 @@
   background-color: #f7f8fa;
 }
 .container .van-search {
-  padding: 0;
   position: sticky;
   top: 0;
 }
 .container .title-wrapper {
   display: flex;
   justify-content: space-around;
+}
+.container .search-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+.container .search-container::after {
+  content: '';
+  width: 210rpx;
+}
+.container .search-container .movie {
+  display: block;
+  margin-bottom: 30rpx;
+}
+.container .search-container .no-res {
+  line-height: 40rpx;
+  margin: 0 auto;
+  color: #b3d4db;
 }

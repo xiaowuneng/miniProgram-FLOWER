@@ -4,7 +4,18 @@
   justify-content: space-between;
   padding: 30rpx;
 }
+.container .loading {
+  width: 100%;
+  text-align: center;
+}
 .container .movie {
   display: block;
   padding-bottom: 30rpx;
+}
+.container .tip {
+  width: 100%;
+  text-align: center;
+  color: #b3d4db;
+  margin-bottom: 30rpx;
+  font-size: 20rpx;
 }

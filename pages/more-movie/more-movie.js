@@ -4,6 +4,7 @@ import {
   comingSoonApi,
   top250Api
 } from '../../utils/api'
+const PULL_DOWN = 'pullDown'
 Page({
   /**
    * 页面的初始数据
@@ -14,21 +15,40 @@ Page({
       comingSoon: comingSoonApi,
       top250: top250Api,
     },
-    movieList: []
+    isLoading: false,
+    movieList: [],
+    noMoreData: false,
+    _category: '',
+    _count: 12, //一次请求个数
   },
   setBatTitle() {
     wx.setNavigationBarTitle({
-      title: MOVIS_CATEGORY[this.data.category]
+      title: MOVIS_CATEGORY[this.data._category]
     })
   },
-  getMovieList() {
+  getMovieList(param) {
+    if(this.data.noMoreData) {
+      return;
+    }
+    if(param !== PULL_DOWN) {
+      // 下拉刷新时，微信自带loading，不显示自定义loading
+      this.setData({isLoading: true})
+    }
     wx.request({
-      url: this.data.urls[this.data.category],
-      data:{ start:0, count:12 },
-      success:(res)=>{
+      url: this.data.urls[this.data._category],
+      data:{ start: this.data.movieList.length, count: this.data._count },
+      success: (res) => {
+        this.data._start += res.data.count
         this.setData({
-          movieList: res.data.subjects
+          movieList: this.data.movieList.concat(...res.data.subjects)
         })
+        if(this.data._count > res.data.count || this.data.movieList >= res.data.total) {
+          this.setData({noMoreData: true})
+        }
+      },
+      complete: ()=> {
+        this.setData({isLoading: false})
+        wx.stopPullDownRefresh()
       }
     })
   },
@@ -37,9 +57,8 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      category: options.category
+      _category: options.category
     })
-    this.setBatTitle()
     this.getMovieList()
   },
 
@@ -47,7 +66,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.setBatTitle()
   },
 
   /**
@@ -75,14 +94,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    this.setData({
+      noMoreData: false,
+      movieList: []
+    })
+    this.getMovieList(PULL_DOWN)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    this.getMovieList()
   },
 
   /**

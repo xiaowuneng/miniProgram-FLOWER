@@ -4,7 +4,8 @@
     "pages/posts/posts",
     "pages/posts-detail/posts-detail",
     "pages/movies/movies",
-    "pages/more-movie/more-movie"
+    "pages/more-movie/more-movie",
+    "pages/movie-detail/movie-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#c22a1e"
@@ -13,7 +14,8 @@
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
     "van-search": "@vant/weapp/search/index",
-    "van-rate": "@vant/weapp/rate/index"
+    "van-rate": "@vant/weapp/rate/index",
+    "van-loading": "@vant/weapp/loading/index"
   },
   "requiredBackgroundModes": [
     "audio",

@@ -1,6 +1,21 @@
 <!--pages/movies/movies.wxml-->
 <view class="container">
-  <van-search value="{{ value }}" placeholder="复仇者联盟" />
-  <movie-list wx:for="{{movieData}}" wx:key="index" movies="{{item.data}}" category="{{item.category}}" />
-
+  <van-search
+    placeholder="复仇者联盟"
+    show-action
+    bind:search="onSearch"
+    bind:cancel="onCancel" />
+  <block wx:if="{{!isSearching}}">
+    <movie-list wx:for="{{movieData}}" wx:key="index" movies="{{item.data}}" category="{{item.category}}" />
+  </block>
+  <block wx:else>
+    <view class="search-container">
+      <block wx:if="{{searchRes.length > 0}}">
+        <movie wx:for="{{searchRes}}" wx:key="id" movie="{{item}}" class="movie" />
+      </block>
+      <block wx:else>
+        <text class="no-res">暂无数据</text>
+      </block>
+    </view>
+  </block>
 </view>
