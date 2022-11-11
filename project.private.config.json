@@ -10,18 +10,6 @@
     "tabIndent": "insertSpaces",
     "tabSize": 2
   },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "",
-          "pathName": "pages/movies/movies",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
-  },
+  "condition": {},
   "libVersion": "2.27.1"
 }

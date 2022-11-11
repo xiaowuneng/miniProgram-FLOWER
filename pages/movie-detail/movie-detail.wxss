@@ -1,1 +1,108 @@
-/* pages/movie-detail/movie-detail.wxss */
+.container {
+  position: relative;
+}
+.container .bg-header {
+  width: 100%;
+  height: 340rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(20px);
+}
+.container .content {
+  padding: 40rpx 30rpx;
+}
+.container .content .title {
+  font-size: 38rpx;
+  padding-bottom: 30rpx;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.container .content .sub-title {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 500;
+}
+.container .content .like {
+  padding-top: 80rpx;
+  padding-bottom: 110rpx;
+}
+.container .content .wish,
+.container .content .comments {
+  font-size: 22rpx;
+  color: #f21146;
+  padding-right: 8rpx;
+}
+.container .content .comments {
+  padding-left: 20rpx;
+}
+.container .content .cover-img {
+  width: 210rpx;
+  height: 320rpx;
+  position: absolute;
+  top: 150rpx;
+  right: 30rpx;
+}
+.container .content .movie-info {
+  font-size: 20rpx;
+}
+.container .content .movie-info .movie-title {
+  width: 70%;
+  font-size: 24rpx;
+  padding-bottom: 30rpx;
+  color: #1f3463;
+  font-weight: 700;
+}
+.container .content .movie-info .row {
+  padding: 6rpx 0;
+}
+.container .content .movie-info .row .label {
+  padding-right: 20rpx;
+  color: #999;
+}
+.container .content .movie-info .row .rate {
+  display: inline-block;
+}
+.container .content .movie-info .row .rate-value {
+  padding-left: 16rpx;
+}
+.container .synopsis {
+  border-top: 1px solid #d9d9d9;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 40rpx 30rpx;
+}
+.container .synopsis .font {
+  padding-bottom: 20rpx;
+}
+.container .synopsis .text {
+  display: inline-block;
+  line-height: 40rpx;
+  text-align: justify;
+}
+.container .casts {
+  padding: 40rpx 30rpx;
+}
+.container .casts .font {
+  padding-bottom: 20rpx;
+}
+.container .casts .casts-content {
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.container .casts .casts-content .wrapper {
+  width: 220rpx;
+  display: inline-block;
+}
+.container .casts .casts-content .wrapper:not(:last-of-type) {
+  margin-right: 16rpx;
+}
+.container .casts .casts-content .wrapper .cast-phone {
+  width: 100%;
+  height: 310rpx;
+}
+.container .casts .casts-content .wrapper .cast-name {
+  font-size: 24rpx;
+  text-align: center;
+}

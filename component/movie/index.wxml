@@ -1,5 +1,5 @@
 <!--component/movie/index.wxml-->
-<view class="container">
+<view class="container" bind:tap="onGoToMovieDetail" data-id="{{movie.id}}">
   <image class="cover-img" src="{{movie.images.large}}" alt=""/>
   <text class="movie-title">{{movie.original_title}}</text>
   <view class="rate">
@@ -15,5 +15,4 @@
     />
     <text class="rate-value">{{movie.rating.average}}</text>
   </view>
-
 </view>

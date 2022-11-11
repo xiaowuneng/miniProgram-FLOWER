@@ -1,0 +1,109 @@
+.container {
+  position: relative;
+  .bg-header {
+    width: 100%;
+    height: 340rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(20px);
+  }
+  .content {
+    padding: 40rpx 30rpx;
+    .title {
+      font-size: 38rpx;
+      padding-bottom: 30rpx;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .sub-title {
+      font-size: 28rpx;
+      color: #fff;
+      font-weight: 500;
+    }
+    .like {
+      padding-top: 80rpx;
+      padding-bottom: 110rpx;
+    }
+    .wish,
+    .comments {
+      font-size: 22rpx;
+      color: #f21146;
+      padding-right: 8rpx;
+    }
+    .comments {
+      padding-left: 20rpx;
+    }
+    .cover-img {
+      width: 210rpx;
+      height: 320rpx;
+      position: absolute;
+      top: 150rpx;
+      right: 30rpx;
+    }
+    .movie-info {
+      font-size: 20rpx;
+      .movie-title {
+        width: 70%;
+        font-size: 24rpx;
+        padding-bottom: 30rpx;
+        color: #1f3463;
+        font-weight: 700;
+      }
+      .row {
+        padding: 6rpx 0;
+        .label {
+          padding-right: 20rpx;
+          color: #999;
+        }
+        .rate {
+          display: inline-block;
+        }
+        .rate-value {
+          padding-left: 16rpx;
+        }
+      }
+    }
+  }
+  .synopsis {
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 40rpx 30rpx;
+    .font {
+      padding-bottom: 20rpx;
+    }
+    .text {
+      display: inline-block;
+      line-height: 40rpx;
+      text-align: justify;
+    }
+  }
+  .casts {
+    padding: 40rpx 30rpx;
+    .font {
+      padding-bottom: 20rpx;
+    }
+    .casts-content {
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      // overflow-x: scroll;
+      .wrapper {
+        width: 220rpx;
+        display: inline-block;
+        &:not(:last-of-type){
+          margin-right: 16rpx;
+        }
+        .cast-phone {
+          width: 100%;
+          height: 310rpx;
+        }
+        .cast-name {
+          font-size: 24rpx;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

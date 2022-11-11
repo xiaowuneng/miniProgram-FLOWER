@@ -1,2 +1,62 @@
-<!--pages/movie-detail/movie-detail.wxml-->
-<text>pages/movie-detail/movie-detail.wxml</text>
+<view class="container">
+  <view class="top">
+    <image class="bg-header" mode="aspectFill" src="{{movieDetailData.images.large}}" />
+    <view class="content">
+      <view class="title">{{movieDetailData.title}}</view>
+      <view class="sub-title">{{movieDetailData.countries[0]}} · {{movieDetailData.year}}</view>
+      <view class="like">
+        <text class="wish">{{movieDetailData.wish_count}}</text>
+        <text>人喜欢</text>
+        <text class="comments">{{movieDetailData.comments_count}}</text>
+        <text>条评论</text>
+      </view>
+      <image class="cover-img" bind:tap="onFullImg" src="{{movieDetailData.images.large}}" data-img-url="{{movieDetailData.images.large}}"></image>
+      <view class="movie-info">
+        <view class="movie-title">{{movieDetailData.title}}</view>
+        <view class="row">
+          <text class="label">评分</text>
+          <view class="rate">
+            <van-rate
+              value="{{ movieDetailData.rating.stars / 10 || 0}}"
+              size="{{ 10 }}"
+              allow-half
+              readonly
+              color="#ffd21e"
+              void-icon="star"
+              void-color="#eee"
+              gutter="0"
+            />
+            <text class="rate-value">{{movieDetailData.rating.average}}</text>
+          </view>
+        </view>
+        <view class="row">
+          <text class="label">导演</text>
+          <text>{{movieDetailData.directorsStr}}</text>
+        </view>
+        <view class="row">
+          <text class="label">影人</text>
+          <text>{{movieDetailData.castsStr}}</text>
+        </view>
+        <view class="row">
+          <text class="label">类型</text>
+          <text>{{movieDetailData.genresStr}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="synopsis">
+    <view class="font">剧情简介</view>
+    <text class="text">{{movieDetailData.summary}}</text>
+  </view>
+  <view class="casts">
+    <view class="font">影人</view>
+    <scroll-view  scroll-x class="casts-content">
+      <block wx:for="{{movieDetailData.casts}}" wx:key="index">
+        <view class="wrapper" bind:tap="previewCastImg" data-index="{{index}}">
+          <image class="cast-phone" src="{{item.avatars.large}}" />
+          <view class="cast-name">{{item.name}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

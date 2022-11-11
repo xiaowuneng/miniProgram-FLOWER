@@ -18,5 +18,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onGoToMovieDetail(event) {
+      wx.navigateTo({
+        url: `/pages/movie-detail/movie-detail?mid=${event.currentTarget.dataset.id}`,
+      })
+    }
   }
 })
